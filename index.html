@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ghost</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <div class="brand">
+        <div class="botface" id="botface" aria-hidden="true">
+          <!-- SVG character -->
+          <svg viewBox="0 0 120 120" class="botface__svg">
+            <defs>
+              <clipPath id="clip">
+                <circle cx="60" cy="60" r="56"/>
+              </clipPath>
+            </defs>
+            <circle cx="60" cy="60" r="58" class="botface__ring"/>
+            <g clip-path="url(#clip)">
+              <rect x="0" y="0" width="120" height="120" class="botface__bg"/>
+              <!-- Eyes -->
+              <circle cx="42" cy="58" r="6" class="eye eye--left"/>
+              <circle cx="78" cy="58" r="6" class="eye eye--right"/>
+              <!-- Mouth -->
+              <rect x="44" y="78" width="32" height="10" rx="5" class="mouth"/>
+              <!-- Antenna -->
+              <line x1="60" y1="6" x2="60" y2="18" class="antenna"/>
+              <circle cx="60" cy="4" r="4" class="antenna__tip"/>
+            </g>
+          </svg>
+        </div>
+        <div class="brand__text">
+          <h1>Ghost</h1>
+          <p class="subtitle">Your friend</p>
+        </div>
+      </div>
+      <div class="header__actions">
+        <button id="voiceToggle" class="btn" title="Toggle speech">🔊 Voice</button>
+        <button id="micBtn" class="btn" title="Speak to Ghost">🎙️ Speak</button>
+      </div>
+    </header>
+
+    <main class="chat">
+      <div id="messages" class="chat__messages" aria-live="polite"></div>
+    </main>
+
+    <footer class="composer">
+      <form id="chatForm" class="composer__form" autocomplete="off">
+        <input id="userInput" class="composer__input" type="text" placeholder="Type a message…" required minlength="1"/>
+        <button class="btn btn--primary" type="submit">Send</button>
+      </form>
+      <p class="hint">Tip: click 🎙️ to dictate, 🔊 to let Ghost speak back.</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
